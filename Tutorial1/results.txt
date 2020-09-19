@@ -1,0 +1,9 @@
+#Author: Chukwuamaka Eunice Nwaobi
+#Studentnumber:12710521
+#Tutorial: BMEG 310 T1A
+#Date: 2020/16/09
+--------------------------------------------------------------------------------
+highestvalue: E14R012c03
+highestmean: 913.5705
+number of values 2*sd above mean of means: 0
+genes 2*sd above mean of means:NA
