@@ -1,0 +1,33 @@
+---
+title: "Assignment1"
+author: "Chukwuamaka Eunice Nwaobi"
+date: "21/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+source("econ_report.R")
+```
+
+## Question 1
+```{r}
+a
+```
+## Question 2
+```{r}
+b
+```
+## Question 3
+```{r}
+c
+```
+## Question 4
+```{r}
+d
+```
+## Question 5
+```{r}
+e
+```
