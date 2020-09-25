@@ -1,0 +1,32 @@
+---
+title: "AdditionalTasks"
+author: "Chukwuamaka Eunice Nwaobi"
+date: "24/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# This is Header 1 for Sales Plot for Jan 2009
+
+## This is header 2 for Sales Table Jan 2009
+<strong>This is some other bold text</strong><br>
+<em>This is some emphasized text</em><br>
+<a href="https://www.google.ca">This is a google link</a><br>
+<br>
+These are list items<br>
+<ul>
+<li>ListItem1</li>
+<li>ListItem2</li>
+<li>ListItem3</li>
+<li>ListItem4</li>
+</ul>
+### This is header 3 Indicating plot of (metadata)
+
+```{r}
+SalesJan2009 <- "https://raw.githubusercontent.com/bmeg310ubc/bmeg310/master/Tutorial%202/R%20Markdown/data/SalesJan2009.csv"
+metadata <- read.csv(SalesJan2009, header=TRUE)
+plot(metadata)
+```
