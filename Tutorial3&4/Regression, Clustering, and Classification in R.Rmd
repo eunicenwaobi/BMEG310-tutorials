@@ -1,0 +1,47 @@
+---
+title: "Regression, Clustering, & Classification in R"
+author: "Chukwuamaka Eunice Nwaobi"
+date: "04/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("submission.R")
+```
+
+# Weeks 3 & 4: Getting Started with Regression, Clustering, and Classification in R
+
+### Question 1
+
+```{r echo=FALSE}
+metadata <- read_excel("example.xls", sheet = "Hoja3")
+##HIERARCHICAL CLUSTERING - 1
+colscale <- as.data.frame(scale(metadata))
+dist_mat <- dist(colscale, method = 'euclidean')
+hclust_avg <- hclust(dist_mat, method='average')
+#sub1a<-plot(hclust_avg)
+#cut_avg <-cutree(hclust_avg, k=3)
+sub1a<-plot(hclust_avg, main="Data Analysis using Average Linkage Hiearchical Clustering")
+#sub1b<-rect.hclust(hclust_avg, k=3, border=2:6)
+#abline(h=3, col='red')
+#sub1a
+
+hclust_comp <- hclust(dist_mat)
+#sub1b<-plot(hclust_comp)
+comp <- cutree(hclust_comp, k=3)
+#plot(hclust_comp)
+#sub1b<-rect.hclust(hclust_comp, k=3, border=2:6)
+#cut_avg2 <- cutree(hclust_comp, k=3)
+sub1b<-plot(hclust_comp, main="Data Analysis using Complete Linkage Hiearchical Clustering")
+#sub1b<-rect.hclust(hclust_comp, k=3, border=2:6)
+#abline(h=3, col='red') 
+#sub1b
+```
+<div<p>The two plots are distinguishable by their symmetries and the second level of branching. The first plot (Average) groups data on the grounds of computed averages and highest cohesion. This same plot exhibits more symmetry than the second (Complete) and has two major overarching nodes emanating through the first branch. In fact, the first plot can be described with 2 clusters whereas the second is defined by three distinct clusters. The second plot creates individual clusters that can be linked to furthest neighboring data. The second exhibits less symmetry than the first with one major overarching node on the first branch. From the resultant data, it can be concluded that "average-linkage hierarchical clustering" found more similarities than differences when compared to "complete-linkage hierarchical clustering." </p></div>
+
+### Question 2
+
+```{r sub2, echo=FALSE}
+  sub2
+```
