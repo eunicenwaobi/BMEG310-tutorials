@@ -1,0 +1,77 @@
+---
+title: "Regression, Clustering, & Classification in R"
+author: "Chukwuamaka Eunice Nwaobi"
+date: "04/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("submission.R")
+library(caret)
+library(corrplot)
+require(ISLR)
+```
+
+# Weeks 3 & 4: Getting Started with Regression, Clustering, and Classification in R
+
+### Regression - Question 1
+```{r echo=FALSE}
+metadata <- read_excel("example.xls", sheet = "Hoja3")
+lmHeight = lm(height~age, data = metadata)
+lmHeight2 = lm(height~age + playtime, data = metadata)
+plot(metadata$age, metadata$height, ylab='height', xlab='age', pch=16, col='blue', main="Age vs. Height Plot")
+#plot(metadata$playtime, metadata$height, ylab='height', xlab='playtime', pch=16, col='blue', main="Height vs. Playtime Plot")
+#plot(metadata$playtime, metadata$age, ylab='age', xlab='playtime', pch=16, col='blue', main="Age vs. Playtime Plot")
+lmHeight = lm(height~age, data=metadata)
+abline(lmHeight)
+plot(lmHeight$residuals, ylab='Residuals', main="Residuals of Plotting Child's Age, Height and Hours of Playtime")
+```
+<div><em><strong>Aside:</strong></em><p>The fact that the residuals are scattered around the horizontal axis in a random manner suggest a linear regression model fits the description of the features of data.</p></div>
+
+### Clustering - Question 1
+
+```{r echo=FALSE}
+##HIERARCHICAL CLUSTERING - 1
+data_seeds <- read.csv("https://raw.githubusercontent.com/bmeg310ubc/bmeg310/master/Tutorial%203/data/seeds_dataset.txt" ,sep = '\t',header = FALSE)
+feature_name <- c('area','perimeter','compactness','length.of.kernel','width.of.kernal','asymmetry.coefficient','length.of.kernel.groove','type.of.seed')
+colnames(data_seeds) <- feature_name
+seeds_label <- data_seeds$type.of.seed
+data_seeds$type.of.seed <- NULL
+data_seeds_norm <- as.data.frame(scale(data_seeds))
+dist_mat <- dist(data_seeds_norm, method = 'euclidean')
+hclust_avg <- hclust(dist_mat, method = 'average')
+plot(hclust_avg, main="Data Analysis using Average Linkage Hiearchical Clustering")
+
+dist_mat <- dist(data_seeds_norm, method = 'euclidean')
+hclust_comp <- hclust(dist_mat)
+plot(hclust_comp, main="Data Analysis using Complete Linkage Hiearchical Clustering")
+```
+<div style="text-align:justify"><p>Both plots are similar in that they are partitioned into 3 main clusters, however, they differ on their heights (dissimilarity). The first plot (Average) groups data on the grounds of computed averages and shared cohesion. The second plot creates individual clusters that are linked to furthest neighboring data. From the resultant data, it can be concluded that "average-linkage hierarchical clustering" found more similarities than differences when compared to "complete-linkage hierarchical clustering" as the y-axis extends from 0 to a maximum value of 4.5 and 8 respectively. It can then be inferred that there is greater variability in clustering using the complete linkage method.</p></div>
+
+### Clustering - Question 2
+
+```{r sub2, echo=FALSE}
+  sub2
+```
+
+### Classification - Question 1
+
+```{r, echo=FALSE}
+# fit smaller model and use Lag1, Lag2, Lag3, leave out all vars, execute rest of code as in example -> submit classification rate & summary() of glm.fit for smaller model
+correlations <- cor(Smarket[,1:8])
+x <- Smarket[,1:8]
+y <- Smarket[,9]
+scales <- list(x=list(relation="free"), y=list(relation="free"))
+glm.fit <- glm(Direction ~ Lag1 + Lag2 + Lag3, data = Smarket, family = binomial)
+summ <- summary(glm.fit)
+glm.probs <- predict(glm.fit,type = "response")
+glm.pred <- ifelse(glm.probs > 0.5, "Up", "Down")
+attach(Smarket)
+classificationrate <- paste0((mean(glm.pred == Direction))*100,"%")
+
+
+summ
+str("The classification is rate: ")
+classificationrate
+```
