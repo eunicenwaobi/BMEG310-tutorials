@@ -8,40 +8,69 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source("submission.R")
+library(caret)
+library(corrplot)
+require(ISLR)
 ```
 
 # Weeks 3 & 4: Getting Started with Regression, Clustering, and Classification in R
 
-### Question 1
-
+### Regression - Question 1
 ```{r echo=FALSE}
 metadata <- read_excel("example.xls", sheet = "Hoja3")
-##HIERARCHICAL CLUSTERING - 1
-colscale <- as.data.frame(scale(metadata))
-dist_mat <- dist(colscale, method = 'euclidean')
-hclust_avg <- hclust(dist_mat, method='average')
-#sub1a<-plot(hclust_avg)
-#cut_avg <-cutree(hclust_avg, k=3)
-sub1a<-plot(hclust_avg, main="Data Analysis using Average Linkage Hiearchical Clustering")
-#sub1b<-rect.hclust(hclust_avg, k=3, border=2:6)
-#abline(h=3, col='red')
-#sub1a
-
-hclust_comp <- hclust(dist_mat)
-#sub1b<-plot(hclust_comp)
-comp <- cutree(hclust_comp, k=3)
-#plot(hclust_comp)
-#sub1b<-rect.hclust(hclust_comp, k=3, border=2:6)
-#cut_avg2 <- cutree(hclust_comp, k=3)
-sub1b<-plot(hclust_comp, main="Data Analysis using Complete Linkage Hiearchical Clustering")
-#sub1b<-rect.hclust(hclust_comp, k=3, border=2:6)
-#abline(h=3, col='red') 
-#sub1b
+lmHeight = lm(height~age, data = metadata)
+lmHeight2 = lm(height~age + playtime, data = metadata)
+plot(metadata$age, metadata$height, ylab='height', xlab='age', pch=16, col='blue', main="Age vs. Height Plot")
+plot(lmHeight2, main="Resulting Plots of lmHeight2 (Height predicted by age and playtime)")
+abline(lmHeight2)
+plot(lmHeight$residuals, ylab='Residuals', main="Residuals of Plotting Child's Age, Height and Hours of Playtime")
+summary(lmHeight2)
 ```
-<div<p>The two plots are distinguishable by their symmetries and the second level of branching. The first plot (Average) groups data on the grounds of computed averages and highest cohesion. This same plot exhibits more symmetry than the second (Complete) and has two major overarching nodes emanating through the first branch. In fact, the first plot can be described with 2 clusters whereas the second is defined by three distinct clusters. The second plot creates individual clusters that can be linked to furthest neighboring data. The second exhibits less symmetry than the first with one major overarching node on the first branch. From the resultant data, it can be concluded that "average-linkage hierarchical clustering" found more similarities than differences when compared to "complete-linkage hierarchical clustering." </p></div>
+<div><em><strong>Conclusion:</strong></em><p>The results of the data suggest that the height increases by 0.98463cm for every month the child has. Likewise, the child's playtime increases the child's height by 0.01388cm every hour. As the p-values are both 1.72e-11 and 0.682 respectively, there is a strong indication that age is a far better influential factor in the outputted value of height than playtime. In percentages, we are talking 1.72e-9% and 68.2% indication of irrelevancy of the results for age and playtime as predictors of height respectively. This is also confirmed by the stark difference between the plot of Age vs Height and Playtime vs Height. The fact that the residuals are scattered around the horizontal axis in a randomly suggest a linear regression model fits the overall description of the features of data in the final model; however, the significance of playtime is highly questionable.</p></div>
 
-### Question 2
+### Clustering - Question 1
+
+```{r echo=FALSE}
+##HIERARCHICAL CLUSTERING - 1
+data_seeds <- read.csv("https://raw.githubusercontent.com/bmeg310ubc/bmeg310/master/Tutorial%203/data/seeds_dataset.txt" ,sep = '\t',header = FALSE)
+feature_name <- c('area','perimeter','compactness','length.of.kernel','width.of.kernal','asymmetry.coefficient','length.of.kernel.groove','type.of.seed')
+colnames(data_seeds) <- feature_name
+seeds_label <- data_seeds$type.of.seed
+data_seeds$type.of.seed <- NULL
+data_seeds_norm <- as.data.frame(scale(data_seeds))
+dist_mat <- dist(data_seeds_norm, method = 'euclidean')
+hclust_avg <- hclust(dist_mat, method = 'average')
+plot(hclust_avg, main="Data Analysis using Average Linkage Hiearchical Clustering")
+
+dist_mat <- dist(data_seeds_norm, method = 'euclidean')
+hclust_comp <- hclust(dist_mat)
+plot(hclust_comp, main="Data Analysis using Complete Linkage Hiearchical Clustering")
+```
+<div style="text-align:justify"><p>Both plots are similar in that they are partitioned into 3 main clusters, however, they differ on their heights (dissimilarity). The first plot (Average) groups data on the grounds of computed averages and shared cohesion. The second plot creates individual clusters that are linked to furthest neighboring data. From the resultant data, it can be concluded that "average-linkage hierarchical clustering" found more similarities than differences when compared to "complete-linkage hierarchical clustering" as the y-axis extends from 0 to a maximum value of 4.5 and 8 respectively. It can then be inferred that there is greater variability in clustering using the complete linkage method.</p></div>
+
+### Clustering - Question 2
 
 ```{r sub2, echo=FALSE}
   sub2
+```
+
+### Classification - Question 1
+
+```{r, echo=FALSE}
+# fit smaller model and use Lag1, Lag2, Lag3, leave out all vars, execute rest of code as in example -> submit classification rate & summary() of glm.fit for smaller model
+correlations <- cor(Smarket[,1:4])
+x <- Smarket[,1:4]
+y <- Smarket[,9]
+scales <- list(x=list(relation="free"), y=list(relation="free"))
+glm.fit <- glm(Direction ~ Lag1 + Lag2 + Lag3, data = Smarket, family = binomial)
+summ <- summary(glm.fit)
+glm.probs <- predict(glm.fit,type = "response")
+glm.pred <- ifelse(glm.probs > 0.5, "Up", "Down")
+attach(Smarket)
+classificationrate <- paste0((mean(glm.pred == Direction))*100,"%")
+
+
+summ
+str("The classification is rate: ")
+classificationrate
 ```
