@@ -1,0 +1,75 @@
+Chukwuamaka Eunice Nwaobi
+Student Number: 12710521
+
+Deliverable:
+FOXP3 (forkhead box P3), is a protein involved in immune system responses. FOXP3 appears to function
+as a master regulator of the regulatory pathway in the development and function of regulatory T cells. 
+Regulatory T cells generally turn the immune response down. Search for “foxp3” in UCSC, you will get
+a lot of entries that match this search term, select the ones which has corresponding PDB entry. 
+
+Submit the answers only in .txt file
+ 
+
+(a) 	What is the sequence of the start codon? 
+
+(b) 	What is the position in the chromosome of the first protein coding nucleotide? 
+
+(c) 	What are the last 8 nucleotides of the 5’ UTR? 
+
+(d) 	What are the Three first and three last nucleotides of intron 1? 
+
+(e) 	Are there any common SNPs in the coding region? What is the identifier of SNP? What is the class
+	of this SNP? Find its position. 
+
+(f) 	Are there any common SNPs between Exon 5 and Exon 6? What is the identifier of SNP? What is the 
+	name of its class? Find its position. Does this cause change to the encoded amino acid? Why? 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Selected - UCSC Genome Browser on Human Dec. 2013 (GRCh38/hg38) 												
+FOXP3 (ENST00000376207.9) at chrX:49250436-49264924 - 
+Homo sapiens forkhead box P3 (FOXP3), transcript variant 1, mRNA. (from RefSeq NM_014009)
+
+Deliverable:
+
+(a) 	The nucleotide sequencing of "ATG" reads "AUG" beginning the corresponding exon 
+	sequence for FOXP3. This also implies that the cDNA strand reads "TAC."
+
+(b) 	The first protein coding codon: Methionine (AUG, cDNA = TAC) is first sited at 
+	ChrX:49,257,671 then, Phenylalanine(AAA, cDNA = TTT) is located at ChrX:49,257,672.
+
+(c) 	The 8 nucleotides of the 5' UTR are found to be "aggacccg."
+
+(d) 	(ENST00000376207.9 (FOXP3) length=2480) TAG aka UAG (UAG, cDNA = ATC) is the stop 
+	codon on exon 2 preceding intron 1 and therefore "GCC" (cDNA = CGG) is the sequence
+	of the first three nucleotides of intron 1. Additionally, the codon nucleotide sequence 
+	before exon 1's AUG/ATG is found to be "TCC" (cDNA = AGG).
+
+	See intron 1 below: 
+		TAGGCCCTGGATGTGCCCACA
+		GGGACCAAGAAGTGAGGTTTCCACTGTCTTGCCTGCCAGGGCCCCTGTTCCCCCGCTGGC
+		AGCCACCCCCTCCCCCATCATATCCTTTGCCCCAAGGCTGCTCAGAGGGGCCCCGGTCCT
+		GGCCCCAGCCCCCACCTCCGCCCCAGACACACCCCCCAGTCGAGCCCTGCAGCCAAACAG
+		AGCCTTCACAACCAGCCACACAGAGCCTGCCTCAGCTGCTCGCACAGATTACTTCAGGGC
+		TGGAAAAGTCACACAGACACACAAAATGTCACAATCCTGTCCCTCACTCAACACAAACCC
+		CAAAACACAGAGAGCCTGCCTCAGTACACTCAAACAACCTCAAAGCTGCATCATCACACA
+		ATCACACACAAGCACAGCCCTGACAACCCACACACCCCAAGGCACGCACCCACAGCCAGC
+		CTCAGGGCCCACAGGGGCACTGTCAACACAGGGGTGTGCCCAGAGGCCTACACAGAAGCA
+		GCGTCAGTACCCTCAGGATCTGAGGTCCCAACACGTGCTCGCTCACACACACGGCCTGTT
+		AGAATTCACCTGTGTATCTCACGCATATGCACACGCACAGCCCCCCAGTGGGTCTCTTGA
+		GTCCCGTGCAGACACACACAGCCACACACACTGCCTTGCCAAAAATACCCCGTGTCTCCC
+		CTGCCACTCACCTCACTCCCATTCCCTGAGCCCTGATCCATG
+
+(e) 	(ENST00000376207.9): A common SNP of my selection was found to be "rs781797823" 
+	(dbSNP build 151 rs781797823) at "chrX:49264844-49264843" with a class of 
+	"insertion" and a color of red. This is clearly on exon 1 and results in a 
+	non-synonymous change. 
+
+(f) 	(ENST00000376207.9): The only green common SNP between exon 5 and exon 6 was selected and 
+	found to be "rs2232367" (dbSNP build 151 rs2232367) at "chrX:49256855-49256855" with a 
+	class of "single." The change caused is one that is synonymous and thus identified as
+	a "sequence variant where there is no resulting change to the encoded amino acid." 
+	If a selection of (ENST00000455775.7) had been made, this could also suffice as an 
+	answer for (e).
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
