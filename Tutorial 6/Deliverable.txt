@@ -1,0 +1,106 @@
+Chukwuamaka Eunice Nwaobi
+Student Number: 12710521
+
+Deliverable:
+FOXP3 (forkhead box P3), is a protein involved in immune system responses. FOXP3 appears to function
+as a master regulator of the regulatory pathway in the development and function of regulatory T cells. 
+Regulatory T cells generally turn the immune response down. Search for “foxp3” in UCSC, you will get
+a lot of entries that match this search term, select the ones which has corresponding PDB entry. 
+
+Submit the answers only in .txt file
+ 
+
+(a) 	What is the sequence of the start codon? 
+
+(b) 	What is the position in the chromosome of the first protein coding nucleotide? 
+
+(c) 	What are the last 8 nucleotides of the 5’ UTR? 
+
+(d) 	What are the Three first and three last nucleotides of intron 1? 
+
+(e) 	Are there any common SNPs in the coding region? What is the identifier of SNP? What is the class
+	of this SNP? Find its position. 
+
+(f) 	Are there any common SNPs between Exon 5 and Exon 6? What is the identifier of SNP? What is the 
+	name of its class? Find its position. Does this cause change to the encoded amino acid? Why? 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Selected - UCSC Genome Browser on Human Dec. 2013 (GRCh38/hg38) 												
+FOXP3 (ENST00000376207.9) at chrX:49250436-49264924 - 
+Homo sapiens forkhead box P3 (FOXP3), transcript variant 1, mRNA. (from RefSeq NM_014009)
+
+Deliverable:
+
+(a) 	The nucleotide sequencing of "ATG" reads "AUG" beginning the corresponding exon 
+	sequence for FOXP3. This also implies that the cDNA strand reads "TAC."
+
+(b) 	(ENST00000376207.9) The first protein coding codon: Methionine (AUG, cDNA = TAC) 
+	is first sited at ChrX:49,257,671 then, Phenylalanine(AAA, cDNA = TTT) is located
+	at ChrX:49,257,672.
+
+(c) 	(ENST00000376207.9) The last 8 nucleotides of the 5' UTR are found to be "aggacccg." 
+	The 5' UTR can be shown to be:
+		auuauuagaagagagaggucugcggcuuccacaccguacagcgugguuuuucuucucgg
+		uauaaaagcaaaguuguuuuugauacgugacaguuucccacaagccaggcugauccuuu
+		ucugucaguccacuucaccaagccugcccuuggacaaggacccg
+
+(d) 	(ENST00000376207.9 (FOXP3) length=2480) TAG aka UAG (UAG, cDNA = ATC) is the stop 
+	codon on exon 2 preceding intron 1 and therefore "GCC" (cDNA = CGG) is the sequence
+	of the first three nucleotides of intron 1. Additionally, the codon nucleotide sequence 
+	before exon 1's AUG/ATG is found to be "TCC" (cDNA = AGG).
+
+	See intron 1 below: 
+		TAGGCCCTGGATGTGCCCACA
+		GGGACCAAGAAGTGAGGTTTCCACTGTCTTGCCTGCCAGGGCCCCTGTTCCCCCGCTGGC
+		AGCCACCCCCTCCCCCATCATATCCTTTGCCCCAAGGCTGCTCAGAGGGGCCCCGGTCCT
+		GGCCCCAGCCCCCACCTCCGCCCCAGACACACCCCCCAGTCGAGCCCTGCAGCCAAACAG
+		AGCCTTCACAACCAGCCACACAGAGCCTGCCTCAGCTGCTCGCACAGATTACTTCAGGGC
+		TGGAAAAGTCACACAGACACACAAAATGTCACAATCCTGTCCCTCACTCAACACAAACCC
+		CAAAACACAGAGAGCCTGCCTCAGTACACTCAAACAACCTCAAAGCTGCATCATCACACA
+		ATCACACACAAGCACAGCCCTGACAACCCACACACCCCAAGGCACGCACCCACAGCCAGC
+		CTCAGGGCCCACAGGGGCACTGTCAACACAGGGGTGTGCCCAGAGGCCTACACAGAAGCA
+		GCGTCAGTACCCTCAGGATCTGAGGTCCCAACACGTGCTCGCTCACACACACGGCCTGTT
+		AGAATTCACCTGTGTATCTCACGCATATGCACACGCACAGCCCCCCAGTGGGTCTCTTGA
+		GTCCCGTGCAGACACACACAGCCACACACACTGCCTTGCCAAAAATACCCCGTGTCTCCC
+		CTGCCACTCACCTCACTCCCATTCCCTGAGCCCTGATCCATG
+
+(e) 	(ENST00000376207.9): These are the lists of all valid common SNPs. Their identifiers, locations,
+	class, and function. See all other function types except for untranslated-3,5 or intron.
+#chromStart	chromEnd	name	class	func
+49251161	49251162	rs56066773	single	untranslated-3
+49252666	49252667	rs2280883	single	intron
+49253861	49253862	rs11465476	single	intron
+49254287	49254288	rs11465475	single	intron
+49254955	49254956	rs11465474	single	intron
+49255620	49255621	rs11465472	single	intron
+49255821	49255822	rs2232368	single	intron
+49256153	49256154	rs58119150	single	intron
+49256208	49256209	rs782189417	single	intron
+49256229	49256230	rs201474125	single	intron
+49256245	49256246	rs11465471	single	intron
+49256854	49256855	rs2232367	single	coding-synon
+49257216	49257217	rs11465469	single	intron
+49257841	49257842	rs11091251	single	intron
+49257998	49257999	rs11465468	single	intron
+49258676	49258678	rs72230897	deletion	intron
+49259428	49259429	rs2232365	single	intron
+49260887	49260888	rs3761549	single	intron
+49261783	49261784	rs3761548	single	intron
+49262003	49262004	rs3761547	single	intron
+49263206	49263207	rs6609859	single	intron
+49264085	49264086	rs11465465	single	intron
+49264137	49264138	rs11465464	single	intron
+49264843	49264843	rs781797823	insertion	near-gene-5,frameshift,untranslated-5
+
+Therefore the solution is "dbSNP1 rs2232367, at location 49256854, 49256855 with a function of single
+coding-synon".
+
+(f) 	(ENST00000376207.9): The only green common SNP between exon 5 and exon 6 was selected and 
+	found to be "rs2232367" (dbSNP build 151 rs2232367) at "chrX:49256855-49256855" with a 
+	class of "single." The change caused is one that is synonymous and thus identified as
+	a "sequence variant where there is no resulting change to the encoded amino acid." 
+	If a selection of (ENST00000455775.7) had been made, this could also suffice as an 
+	answer for (e).
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
