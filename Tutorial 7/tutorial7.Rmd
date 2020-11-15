@@ -1,0 +1,55 @@
+---
+title: "Tutorial 7"
+author: "Chukwuamaka Eunice Nwaobi"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source('deliverable.R')
+```
+
+
+If we assume p-value of 3%, what would be the expected false positive?
+```{r, echo=FALSE}
+q1
+```
+
+## Below is the percentage of identified false positives for p-value of 3%:
+
+```{r, echo=FALSE}
+fp
+```
+
+Following (1), How many genes are there if you set FDR cutoff as % false positive in (1) lowered by ONE percent?
+```{r, echo=FALSE}
+q2
+```
+Having results from 1 & 2, list the top 5 upregulated and top 5 downregulated genes?
+
+## Here are the genes for most significant upregulation:
+```{r, echo=FALSE}
+q3_up
+```
+## And, here are the genes for most significant downregulation:
+```{r, echo=FALSE}
+q3_down
+```
+Same as to heatmep covered in this tutorial, plot heatmap of the found genes in part (3)
+
+Hint: Gene names should be annotated names. The Heatmap should have annotation_col. Rows should be the names of genes and columns should be sample names
+```{r, echo=FALSE}
+q4
+```
+
+Print the names of top upregulated and downregulated pathways?
+
+## For the sakes of the assignment, the word 'top' was interpreted as 6.
+## Here are the names for most significant upregulated pathways:
+```{r, echo=FALSE}
+q5_top
+```
+## And, here are the names for most significant downregulated pathways:
+```{r, echo=FALSE}
+q5_down
+```
